@@ -1,0 +1,35 @@
+<main>
+    <h1>LISTA DE PRODUCTOS</h1>
+    <h2>Agregar un producto:</h2>
+        <form action="/realtimeproducts" method="POST">
+            <label>Titulo: </label>
+            <input name="title">
+            <label >Descripcion: </label>
+            <input name="description">
+            <label >Código: </label>
+            <input name="code">
+            <label >Precio: </label>
+            <input name="price" type="number">
+            <label >Status: </label>
+            <input name="status" type="radio" value="true" id="true">
+            <label for="true">true</label>
+            <input name="status" type="radio" value="" id="false">
+            <label >false</label>
+            <label for="false">Stock: </label>
+            <input name="stock" type="number">
+            <label >Categoria: </label>
+            <input name="category">
+            <label >Thumbnails: </label>
+            <input name="thumbnails">
+            <input type="submit">
+
+        </form>
+    <ul>
+        {{#each products}}
+            <li>{{this.title}}: ${{this.price}}</li>
+            <br>
+        {{/each}}
+    </ul>
+</main>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
